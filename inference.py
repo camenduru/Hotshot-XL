@@ -154,7 +154,7 @@ def main():
 
     generator = torch.Generator().manual_seed(args.seed) if args.seed else None
 
-    with autocast("cuda", dtype=torch.float16):
+    with autocast("cuda", dtype=torch.float32):
 
         kwargs = {}
 
