@@ -109,7 +109,7 @@ def main():
         }
         control_net_model_pretrained_path = control_type_to_model_map[args.control_type]
 
-    data_type = torch.float32
+    data_type = torch.float16
 
     pipe_line_args = {
         "torch_dtype": data_type,
@@ -154,7 +154,7 @@ def main():
 
     generator = torch.Generator().manual_seed(args.seed) if args.seed else None
 
-    with autocast("cuda", dtype=torch.bfloat16):
+    with autocast("cuda", dtype=torch.float16):
 
         kwargs = {}
 
